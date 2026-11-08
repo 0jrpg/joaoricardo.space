@@ -1,4 +1,6 @@
 import { useLang } from '../i18n'
+import { ALF_REPO } from '../data'
+import Title from './Title'
 
 const sample = `<janela> #B0C4DE {login}
 *usuario "Usuário"
@@ -10,15 +12,15 @@ export default function Alf() {
   const { t } = useLang()
   return (
     <section id="alf" className="section">
-      <div className="glass panel alf">
-        <span className="badge">{t.alfBadge}</span>
-        <h2 className="alf-title">{t.alfTitle}</h2>
-        <p className="sub">{t.alfSub}</p>
-        <p>{t.alfText}</p>
-        <p>{t.alfText2}</p>
+      <Title a={t.alf.a} b={t.alf.b} />
+      <p className="sub">{t.alf.sub}</p>
+      <div className="card alf">
+        <span className="badge">{t.alf.badge}</span>
+        <p>{t.alf.t1}</p>
+        <p>{t.alf.t2}</p>
         <pre className="code" aria-label="Exemplo de código .alf">{sample}</pre>
-        <a className="alf-link" href="https://github.com/alphalanguage/alf" target="_blank" rel="noopener noreferrer">
-          {t.alfRepo}
+        <a className="text-link" href={ALF_REPO} target="_blank" rel="noopener noreferrer">
+          {t.alf.repo}
         </a>
       </div>
     </section>
