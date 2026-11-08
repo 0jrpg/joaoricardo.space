@@ -2,7 +2,7 @@ import { useLang } from '../i18n'
 
 const stack = {
   web: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js'],
-  back: ['Node.js', 'Git', 'GitHub', 'Vercel'],
+  back: ['Node.js', 'Python', 'Git', 'GitHub', 'Vercel'],
   games: ['Lua', 'Roblox Studio', 'Discord API'],
 }
 
