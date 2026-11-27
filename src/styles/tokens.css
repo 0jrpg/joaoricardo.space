@@ -1,0 +1,33 @@
+:root {
+  --bg: #04050a;
+  --glass: rgba(14, 17, 34, 0.55);
+  --line: rgba(255, 255, 255, 0.09);
+  --line-2: rgba(255, 255, 255, 0.2);
+  --text: #f4f6ff;
+  --mut: rgba(226, 230, 255, 0.7);
+  --dim: rgba(226, 230, 255, 0.42);
+
+  --violet: #8b5cf6;
+  --cyan: #22d3ee;
+  --mint: #5eead4;
+  --pink: #f472b6;
+  --grad: linear-gradient(110deg, #8b5cf6, #22d3ee 55%, #5eead4);
+
+  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --ease: cubic-bezier(0.2, 0.9, 0.25, 1);
+  --ease-io: cubic-bezier(0.76, 0, 0.24, 1);
+  --maxw: 1180px;
+  --pad: clamp(20px, 5vw, 56px);
+
+  color-scheme: dark;
+}
+
+/* Permite animar o ângulo do gradiente cônico (borda giratória). */
+@property --ang {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}

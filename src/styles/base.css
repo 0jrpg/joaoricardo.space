@@ -1,0 +1,32 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 96px; background: var(--bg); -webkit-text-size-adjust: 100%; }
+html.boot-lock, html.boot-lock body { overflow: hidden; }
+body {
+  font-family: var(--font-body); color: var(--text); line-height: 1.6;
+  min-height: 100vh; overflow-x: hidden; background: transparent;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+::selection { background: rgba(139, 92, 246, 0.5); color: #fff; }
+:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 8px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: linear-gradient(var(--violet), var(--cyan)); border-radius: 10px; border: 2px solid var(--bg); }
+
+.container { width: min(var(--maxw), 100% - 2 * var(--pad)); margin-inline: auto; }
+main { overflow-x: clip; }
+.section { position: relative; padding: clamp(72px, 11vw, 140px) 0; }
+
+/* Vidro: base visual de cards e blocos */
+.glass {
+  background: var(--glass); border: 1px solid var(--line); border-radius: 24px;
+  backdrop-filter: blur(14px) saturate(1.3); -webkit-backdrop-filter: blur(14px) saturate(1.3);
+}
+
+/* Ícones SVG hospedados no CDN: viram "máscara" e herdam a cor do texto (currentColor). */
+.ico { display: inline-block; flex: none; vertical-align: middle; background-color: currentColor; -webkit-mask: var(--src) center / contain no-repeat; mask: var(--src) center / contain no-repeat; }

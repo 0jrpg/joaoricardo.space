@@ -1,26 +1,53 @@
 import { Analytics } from '@vercel/analytics/react'
-import Header from './components/Header'
-import SideSocial from './components/SideSocial'
-import LangButton from './components/LangButton'
-import Hero from './components/Hero'
-import Code from './components/Code'
-import Featured from './components/Featured'
-import Alf from './components/Alf'
-import Contact from './components/Contact'
+import { useEffect, useRef } from 'react'
+import Boot from './boot/Boot'
+import { useBoot } from './boot/BootProvider'
+import BackgroundFX from './components/fx/BackgroundFX'
+import BackToTop from './components/fx/BackToTop'
+import ScrollProgress from './components/fx/ScrollProgress'
+import Footer from './components/layout/Footer'
+import Header from './components/layout/Header'
+import SideSocial from './components/layout/SideSocial'
+import Alpha from './components/sections/Alpha'
+import Contact from './components/sections/Contact'
+import Hero from './components/sections/Hero'
+import Marquee from './components/sections/Marquee'
+import Projects from './components/sections/Projects'
+import Stack from './components/sections/Stack'
+import Stats from './components/sections/Stats'
 
 export default function App() {
+  const { ready } = useBoot()
+  const page = useRef<HTMLDivElement>(null)
+
+  // Enquanto o skeleton está na tela, a página por trás não recebe foco (teclado/leitor de tela).
+  useEffect(() => {
+    const el = page.current
+    if (!el) return
+    if (ready) el.removeAttribute('inert')
+    else el.setAttribute('inert', '')
+  }, [ready])
+
   return (
     <>
-      <Header />
-      <SideSocial />
-      <LangButton />
-      <main>
-        <Hero />
-        <Code />
-        <Featured />
-        <Alf />
-        <Contact />
-      </main>
+      <BackgroundFX />
+      <ScrollProgress />
+      <div ref={page}>
+        <Header />
+        <SideSocial />
+        <main>
+          <Hero />
+          <Marquee />
+          <Stats />
+          <Stack />
+          <Projects />
+          <Alpha />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+      <BackToTop />
+      <Boot />
       <Analytics />
     </>
   )

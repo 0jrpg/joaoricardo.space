@@ -1,0 +1,55 @@
+/* ===== Entrada ao rolar (Reveal) ===== */
+.reveal { opacity: 0; transition: opacity 0.9s var(--ease) var(--d, 0ms), translate 0.9s var(--ease) var(--d, 0ms), scale 0.9s var(--ease) var(--d, 0ms), filter 0.9s var(--ease) var(--d, 0ms); }
+.rv-up { translate: 0 46px; }
+.rv-down { translate: 0 -46px; }
+.rv-left { translate: -64px 0; }
+.rv-right { translate: 64px 0; }
+.rv-zoom { scale: 0.82; }
+.rv-blur { filter: blur(14px); translate: 0 22px; }
+.reveal.in { opacity: 1; translate: 0 0; scale: 1; filter: blur(0); }
+
+/* ===== Keyframes ===== */
+@keyframes shimmer { from { background-position: 100% 0; } to { background-position: -100% 0; } }
+@keyframes skIn { from { opacity: 0; transform: translateY(14px) scale(0.98); } to { opacity: 1; transform: none; } }
+@keyframes bootBar { to { transform: scaleX(1); } }
+@keyframes dotBounce { 0%, 100% { transform: translateY(0); opacity: 0.5; } 50% { transform: translateY(-6px); opacity: 1; } }
+@keyframes ringDraw { to { stroke-dashoffset: 0; } }
+@keyframes logoGlow { 0% { opacity: 0; transform: scale(0.4); } 40% { opacity: 1; } 100% { opacity: 0.55; transform: scale(1.1); } }
+@keyframes logoPop { to { opacity: 1; scale: 1; filter: blur(0); } }
+@keyframes nameIn { from { opacity: 0; letter-spacing: 0.7em; filter: blur(8px); } to { opacity: 1; letter-spacing: 0.32em; filter: blur(0); } }
+
+@keyframes drift1 { to { transform: translate(14vmax, 10vmax) scale(1.15); } }
+@keyframes drift2 { to { transform: translate(-16vmax, 8vmax) scale(1.1); } }
+@keyframes drift3 { to { transform: translate(10vmax, -14vmax) scale(1.2); } }
+@keyframes gridMove { to { background-position: 64px 64px; } }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes counter { from { transform: rotate(calc(var(--a) * -1)); } to { transform: rotate(calc(var(--a) * -1 - 360deg)); } }
+@keyframes ang { to { --ang: 360deg; } }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+@keyframes glowBreath { 0%, 100% { opacity: 0.4; scale: 0.96; } 50% { opacity: 0.7; scale: 1.06; } }
+@keyframes orbPulse { 0%, 100% { box-shadow: 0 0 10px var(--violet); } 50% { box-shadow: 0 0 22px var(--cyan); } }
+@keyframes ping { 0% { transform: scale(1); opacity: 0.7; } 80%, 100% { transform: scale(3.2); opacity: 0; } }
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes wheel { 0% { opacity: 0; transform: translateY(0); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(14px); } }
+@keyframes strokeShift { 0%, 100% { -webkit-text-stroke-color: rgba(255, 255, 255, 0.92); } 33% { -webkit-text-stroke-color: #c4b5fd; } 66% { -webkit-text-stroke-color: #67e8f9; } }
+@keyframes gradShift { to { background-position: 300% 0; } }
+@keyframes ripple { to { transform: scale(1); opacity: 0; } }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes dash { to { background-position: 12px 0; } }
+@keyframes travel { 0% { left: 0; opacity: 0; } 15%, 85% { opacity: 1; } 100% { left: calc(100% - 8px); opacity: 0; } }
+@keyframes scan { to { background-position: 0 10px; } }
+@keyframes badgePulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(199, 210, 254, 0.5); } 50% { box-shadow: 0 0 0 10px rgba(199, 210, 254, 0); } }
+@keyframes lineGrow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes nudgeUp { 50% { transform: translateY(-4px); } }
+@keyframes pop { 0% { transform: scale(0.6); } 60% { transform: scale(1.2); } 100% { transform: scale(1); } }
+
+/* ===== Acessibilidade: quem prefere menos movimento ===== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; transition-delay: 0s !important; }
+  .reveal { opacity: 1; translate: none; scale: 1; filter: none; }
+  .sl { opacity: 1; transform: none; }
+  .chips li { opacity: 1; scale: 1; }
+  .cursor-glow { display: none; }
+}
