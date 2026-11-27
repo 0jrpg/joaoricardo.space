@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import Header from './components/Header'
 import SideSocial from './components/SideSocial'
 import LangButton from './components/LangButton'
@@ -20,6 +21,7 @@ export default function App() {
         <Alf />
         <Contact />
       </main>
+      <Analytics />
     </>
   )
 }
