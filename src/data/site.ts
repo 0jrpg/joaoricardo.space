@@ -11,4 +11,7 @@ export const ALF_REPO = 'https://github.com/alphalanguage/alf'
 export const SECTIONS = ['inicio', 'codigo', 'destaques', 'alf', 'contato'] as const
 
 /** Tempos (ms) da abertura do site. `skeleton` = quanto tempo o skeleton screen fica na tela. */
+/** Troca de idioma: `swap` = ms até o texto trocar (tela coberta); `total` = ms até a animação sumir. */
+export const LANG_FX = { swap: 580, total: 1260 }
+
 export const BOOT = { skeleton: 3000, logo: 950, wipe: 950 }

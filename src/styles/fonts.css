@@ -1,0 +1,20 @@
+/*
+  Fontes hospedadas no CDN (https://cdn.files.joaoricardo.space/<arquivo>).
+  IMPORTANTE: navegadores só carregam fontes de outro domínio se o CDN responder com
+  `Access-Control-Allow-Origin: *` (veja o README). Sem isso, o site usa a fonte do sistema.
+*/
+
+/* Inter — texto */
+@font-face { font-family: 'Inter'; font-weight: 400; font-style: normal; font-display: swap; src: url('https://cdn.files.joaoricardo.space/inter-400.woff') format('woff'); }
+@font-face { font-family: 'Inter'; font-weight: 500; font-style: normal; font-display: swap; src: url('https://cdn.files.joaoricardo.space/inter-500.woff') format('woff'); }
+@font-face { font-family: 'Inter'; font-weight: 600; font-style: normal; font-display: swap; src: url('https://cdn.files.joaoricardo.space/inter-600.woff') format('woff'); }
+@font-face { font-family: 'Inter'; font-weight: 700; font-style: normal; font-display: swap; src: url('https://cdn.files.joaoricardo.space/inter-700.woff') format('woff'); }
+
+/* JetBrains Mono — código e rótulos (o peso 500 usa o 400) */
+@font-face { font-family: 'JetBrains Mono'; font-weight: 400; font-style: normal; font-display: swap; src: url('https://cdn.files.joaoricardo.space/jetbrains-mono-400.woff') format('woff'); }
+@font-face { font-family: 'JetBrains Mono'; font-weight: 700; font-style: normal; font-display: swap; src: url('https://cdn.files.joaoricardo.space/jetbrains-mono-700.woff') format('woff'); }
+
+/* Space Grotesk — títulos (gerado por scripts/baixar-space-grotesk.mjs). Enquanto não estiver no CDN, cai no Inter. */
+@font-face { font-family: 'Space Grotesk'; font-weight: 500; font-style: normal; font-display: swap; src: url('https://cdn.files.joaoricardo.space/space-grotesk-500.woff2') format('woff2'); }
+@font-face { font-family: 'Space Grotesk'; font-weight: 600; font-style: normal; font-display: swap; src: url('https://cdn.files.joaoricardo.space/space-grotesk-600.woff2') format('woff2'); }
+@font-face { font-family: 'Space Grotesk'; font-weight: 700; font-style: normal; font-display: swap; src: url('https://cdn.files.joaoricardo.space/space-grotesk-700.woff2') format('woff2'); }

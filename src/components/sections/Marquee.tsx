@@ -13,7 +13,7 @@ export default function Marquee() {
             <div className="mq-track">
               {[...half, ...half].map((name, i) => (
                 <span key={i} className="mq-item">
-                  <i>✦</i>
+                  <i />
                   {name}
                 </span>
               ))}

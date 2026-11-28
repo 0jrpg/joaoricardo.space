@@ -11,9 +11,9 @@ import MobileMenu from './MobileMenu'
  * mostra ao rolar pra cima e tem um indicador que desliza até a seção ativa.
  */
 export default function Header() {
-  const { t } = useLang()
+  const { t, lang } = useLang()
   const { ready } = useBoot()
-  const active = useActiveSection(SECTIONS)
+  const active = useActiveSection(SECTIONS, lang)
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [hide, setHide] = useState(false)

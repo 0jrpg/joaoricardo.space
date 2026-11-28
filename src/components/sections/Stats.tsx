@@ -3,7 +3,7 @@ import { allTech } from '../../data/stack'
 import { projects } from '../../data/projects'
 import { useCountUp } from '../../hooks/useCountUp'
 import { useInView } from '../../hooks/useInView'
-import { useLang } from '../../i18n'
+import { LANGS, useLang } from '../../i18n'
 import { vars } from '../../lib/css'
 
 function Stat({ value, label, delay }: { value: number; label: string; delay: number }) {
@@ -27,7 +27,7 @@ export default function Stats() {
         <Stat value={projects.length} label={t.stats.projects} delay={0} />
         <Stat value={allTech.length} label={t.stats.tech} delay={110} />
         <Stat value={1} label={t.stats.own} delay={220} />
-        <Stat value={2} label={t.stats.langs} delay={330} />
+        <Stat value={LANGS.length} label={t.stats.langs} delay={330} />
       </div>
     </section>
   )

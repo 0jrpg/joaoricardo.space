@@ -53,3 +53,16 @@
   .chips li { opacity: 1; scale: 1; }
   .cursor-glow { display: none; }
 }
+
+@keyframes langPanel {
+  0% { transform: scaleY(0); transform-origin: bottom; }
+  35% { transform: scaleY(1); transform-origin: bottom; }
+  36% { transform: scaleY(1); transform-origin: top; }
+  65% { transform: scaleY(1); transform-origin: top; }
+  100% { transform: scaleY(0); transform-origin: top; }
+}
+@keyframes langLabel {
+  0%, 22% { opacity: 0; scale: 0.6; filter: blur(12px); }
+  38%, 58% { opacity: 1; scale: 1; filter: blur(0); }
+  80%, 100% { opacity: 0; scale: 1.25; filter: blur(10px); }
+}

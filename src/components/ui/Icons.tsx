@@ -1,16 +1,15 @@
 import { cdn } from '../../data/site'
-import { vars } from '../../lib/css'
 
 type P = { size?: number }
 
 /**
  * Ícones: os arquivos .svg ficam no CDN (cdn.files.joaoricardo.space/icon-*.svg).
- * São usados como máscara CSS, então continuam herdando a cor do texto e podem mudar no hover.
- * Obs.: máscara exige que o CDN envie o header `Access-Control-Allow-Origin` (veja o README).
+ * São <img> normais (não precisam de CORS). A cor já vem dentro de cada arquivo:
+ * branco (padrão), ciano (globe/database/code) e escuro (check).
  */
 const icon = (file: string, defaultSize: number) =>
   function Icon({ size = defaultSize }: P) {
-    return <span className="ico" aria-hidden="true" style={vars({ width: size, height: size, '--src': `url(${cdn(file)})` })} />
+    return <img className="ico" src={cdn(file)} width={size} height={size} alt="" draggable={false} />
   }
 
 export const GithubIcon = icon('icon-github.svg', 22)
@@ -24,6 +23,8 @@ export const GlobeIcon = icon('icon-globe.svg', 22)
 export const DbIcon = icon('icon-database.svg', 22)
 export const CodeIcon = icon('icon-code.svg', 22)
 
-/** Bandeiras: imagens normais (não precisam de cor dinâmica). */
-export const FlagBR = ({ size = 22 }: P) => <img src={cdn('flag-br.svg')} width={size} height={size * 0.7} alt="" />
-export const FlagUS = ({ size = 22 }: P) => <img src={cdn('flag-us.svg')} width={size} height={size * 0.7} alt="" />
+/** Bandeiras */
+const flag = (file: string) => ({ size = 22 }: P) => <img src={cdn(file)} width={size} height={size * 0.7} alt="" draggable={false} />
+export const FlagBR = flag('flag-br.svg')
+export const FlagUS = flag('flag-us.svg')
+export const FlagES = flag('flag-es.svg')

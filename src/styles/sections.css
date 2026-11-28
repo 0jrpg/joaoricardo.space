@@ -68,7 +68,7 @@
 .mq-item { display: inline-flex; align-items: center; gap: 22px; padding-right: 22px; font: 700 clamp(1.4rem, 3.4vw, 2.4rem) var(--font-display); text-transform: uppercase; letter-spacing: -0.02em; white-space: nowrap; color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.55); transition: color 0.3s; }
 .mq-row.rev .mq-item { color: rgba(255, 255, 255, 0.9); -webkit-text-stroke: 0; }
 .mq-item:hover { color: var(--cyan); -webkit-text-stroke: 0; }
-.mq-item i { font-style: normal; font-size: 0.55em; color: var(--violet); }
+.mq-item i { width: 0.32em; height: 0.32em; flex: none; rotate: 45deg; background: linear-gradient(135deg, var(--violet), var(--cyan)); box-shadow: 0 0 12px var(--violet); }
 
 /* ===== Números ===== */
 .stats-wrap { padding: clamp(50px, 8vw, 90px) 0 0; }
@@ -163,3 +163,13 @@
 .form .btn { align-self: flex-start; }
 .toast { position: fixed; left: 50%; bottom: calc(26px + env(safe-area-inset-bottom, 0px)); z-index: 80; translate: -50% 30px; padding: 12px 22px; border-radius: 999px; font-weight: 600; font-size: 0.9rem; background: rgba(10, 12, 26, 0.92); border: 1px solid rgba(94, 234, 212, 0.5); box-shadow: 0 16px 50px -12px rgba(94, 234, 212, 0.4); opacity: 0; pointer-events: none; transition: opacity 0.35s, translate 0.5s var(--ease); }
 .toast.show { opacity: 1; translate: -50% 0; }
+
+/* ===== Animação de troca de idioma ===== */
+.lang-fx { position: fixed; inset: 0; z-index: 150; display: grid; grid-template-columns: repeat(5, 1fr); }
+.lang-fx i { position: relative; background: hsl(calc(250 + var(--i) * 16) 72% 12%); box-shadow: 1px 0 0 hsl(calc(250 + var(--i) * 16) 72% 12%); transform: scaleY(0); transform-origin: bottom; animation: langPanel 1000ms var(--ease-io) both; animation-delay: calc(var(--i) * 45ms); }
+.lang-fx i::before, .lang-fx i::after { content: ''; position: absolute; left: 0; right: 0; height: 3px; background: var(--grad); box-shadow: 0 0 26px var(--violet); }
+.lang-fx i::before { top: 0; }
+.lang-fx i::after { bottom: 0; }
+.lt-label { position: absolute; inset: 0; z-index: 2; display: grid; place-content: center; justify-items: center; gap: 18px; pointer-events: none; animation: langLabel 1000ms var(--ease) both; }
+.lt-label img { width: 84px; height: auto; border-radius: 8px; box-shadow: 0 14px 50px -8px rgba(139, 92, 246, 0.9); }
+.lt-label b { font: 700 clamp(2.2rem, 8vw, 4.6rem) var(--font-display); text-transform: uppercase; letter-spacing: -0.02em; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }

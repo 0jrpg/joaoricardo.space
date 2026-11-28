@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 /** Descobre qual seção está no centro da tela (para destacar o menu). */
-export function useActiveSection(ids: readonly string[]) {
+export function useActiveSection(ids: readonly string[], refresh?: unknown) {
   const [active, setActive] = useState(ids[0])
   useEffect(() => {
     const els = ids.map((id) => document.getElementById(id)).filter((e): e is HTMLElement => !!e)
@@ -18,6 +18,6 @@ export function useActiveSection(ids: readonly string[]) {
       io.disconnect()
       window.removeEventListener('scroll', onScroll)
     }
-  }, [ids])
+  }, [ids, refresh])
   return active
 }

@@ -8,7 +8,7 @@ import Reveal from '../ui/Reveal'
 import Title from '../ui/Title'
 
 export default function Contact() {
-  const { t } = useLang()
+  const { t, lang } = useLang()
   const [name, setName] = useState('')
   const [from, setFrom] = useState('')
   const [msg, setMsg] = useState('')
@@ -49,7 +49,7 @@ export default function Contact() {
   return (
     <section id="contato" className="section contact">
       <div className="container">
-        <Title index="04" eyebrow={t.contact.eyebrow} a={t.contact.a} b={t.contact.b} sub={t.contact.sub} />
+        <Title key={lang} index="04" eyebrow={t.contact.eyebrow} a={t.contact.a} b={t.contact.b} sub={t.contact.sub} />
 
         <div className="contact-grid">
           <div className="contact-left">

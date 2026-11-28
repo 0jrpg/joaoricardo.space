@@ -1,5 +1,7 @@
 import { Analytics } from '@vercel/analytics/react'
 import { useEffect, useRef } from 'react'
+import LangTransition from './components/fx/LangTransition'
+import { useLang } from './i18n'
 import Boot from './boot/Boot'
 import { useBoot } from './boot/BootProvider'
 import BackgroundFX from './components/fx/BackgroundFX'
@@ -18,6 +20,7 @@ import Stats from './components/sections/Stats'
 
 export default function App() {
   const { ready } = useBoot()
+  const { lang } = useLang()
   const page = useRef<HTMLDivElement>(null)
 
   // Enquanto o skeleton está na tela, a página por trás não recebe foco (teclado/leitor de tela).
@@ -36,17 +39,18 @@ export default function App() {
         <Header />
         <SideSocial />
         <main>
-          <Hero />
+          <Hero key={`hero-${lang}`} />
           <Marquee />
-          <Stats />
-          <Stack />
-          <Projects />
-          <Alpha />
+          <Stats key={`stats-${lang}`} />
+          <Stack key={`stack-${lang}`} />
+          <Projects key={`projects-${lang}`} />
+          <Alpha key={`alpha-${lang}`} />
           <Contact />
         </main>
-        <Footer />
+        <Footer key={`footer-${lang}`} />
       </div>
       <BackToTop />
+      <LangTransition />
       <Boot />
       <Analytics />
     </>
